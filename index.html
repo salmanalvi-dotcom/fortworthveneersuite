@@ -181,6 +181,7 @@
     .btn:hover::before{transform:scaleX(1)}
   }
   .btn:active{transform:scale(.985)}
+  .btn.ghost{border-color:rgba(250,248,244,.45)}
   .btn.dark{color:var(--ink);border-color:var(--ink)}
   .btn.dark::before{background:var(--ink)}
   @media (hover:hover) and (pointer:fine){
@@ -422,7 +423,7 @@
   @media (max-width:880px){
     .actionbar{
       position:fixed;left:0;right:0;bottom:0;z-index:55;
-      display:grid;grid-template-columns:1fr 1fr;
+      display:grid;grid-template-columns:1fr 1fr 1fr;
       background:var(--ink);
       padding-bottom:env(safe-area-inset-bottom);
       transform:translateY(100%);
@@ -685,6 +686,17 @@
     gap:clamp(40px,6vw,88px);
   }
   .contact h2{font-size:clamp(38px,5vw,68px);margin-bottom:36px;max-width:10ch}
+  .paths{display:grid;gap:12px;margin-bottom:44px;max-width:520px}
+  .path{
+    display:block;text-decoration:none;color:inherit;
+    border:1px solid var(--hairline);padding:18px 20px;
+    transition:border-color .25s var(--ease-out);
+  }
+  @media (hover:hover) and (pointer:fine){.path:hover{border-color:var(--brass)}}
+  .path-t{
+    display:block;font-family:var(--serif);font-size:21px;line-height:1.2;margin-bottom:4px;
+  }
+  .path-d{display:block;font-size:13px;color:var(--stone)}
   .contact dl{display:grid;gap:28px;margin-bottom:44px}
   .contact dt{
     font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
@@ -747,6 +759,7 @@
     <p class="hero-sub rv">No-shave and minimal-prep porcelain veneers by Dr. Khan — smile design that preserves your natural enamel, in a private Fort Worth studio.</p>
     <div class="hero-row">
       <a class="btn rv" href="#contact"><span>Book a Consultation</span></a>
+      <a class="btn ghost rv rv-d1" href="https://app.smileviz.com/consult/drkhanveneers" target="_blank" rel="noopener"><span>Free Virtual Consult</span></a>
       <a class="rating-badge rv rv-d1" href="https://maps.app.goo.gl/hovSmxJpayCkxxR79" target="_blank" rel="noopener">
         <span class="stars">★★★★★</span>
         <span>4.8 · 225 Google reviews</span>
@@ -1096,6 +1109,20 @@
   <div class="inner">
     <div>
       <h2 class="display rv">Begin with a conversation.</h2>
+      <div class="paths rv rv-d1">
+        <a class="path" href="https://app.smileviz.com/consult/drkhanveneers" target="_blank" rel="noopener">
+          <span class="path-t">Virtual consult</span>
+          <span class="path-d">Send two photos — Dr. Khan replies with a video and estimate. Complimentary.</span>
+        </a>
+        <a class="path" href="#intake">
+          <span class="path-t">Request a visit</span>
+          <span class="path-d">Tell us what you're hoping for below and the team reaches out within a day.</span>
+        </a>
+        <a class="path" href="tel:+18179261300">
+          <span class="path-t">Call the studio</span>
+          <span class="path-d">817-926-1300 — a person, during studio hours.</span>
+        </a>
+      </div>
       <dl>
         <div class="rv rv-d1">
           <dt>Visit</dt>
@@ -1157,6 +1184,7 @@
 
 <div class="actionbar" id="actionbar" aria-label="Quick actions">
   <a href="tel:+18179261300">Call</a>
+  <a href="https://app.smileviz.com/consult/drkhanveneers" target="_blank" rel="noopener">Virtual</a>
   <a class="book" href="#contact">Book</a>
 </div>
 
