@@ -451,7 +451,19 @@
     background:var(--ink);color:var(--porcelain);border-color:var(--ink);
   }
   .pills button:active{transform:scale(.97)}
-  #intake-send{margin-top:32px}
+  .intake-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:480px}
+  .intake-fields input{
+    font:400 14px/1.4 var(--sans);color:var(--ink);
+    background:transparent;border:1px solid var(--hairline);
+    padding:13px 16px;outline:none;
+    transition:border-color .2s ease;
+  }
+  .intake-fields input::placeholder{color:var(--stone)}
+  .intake-fields input:focus{border-color:var(--brass)}
+  #intake-send{margin-top:32px;cursor:pointer;font-family:var(--sans)}
+  #intake-send[disabled]{opacity:.55;cursor:default}
+  .intake-status{margin-top:14px;font-size:13px;color:var(--brass);min-height:1.2em}
+  @media (max-width:520px){.intake-fields{grid-template-columns:1fr}}
   .intake-alt{margin-top:18px;font-size:13px;color:var(--stone)}
   .intake-alt a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--brass)}
 
@@ -1050,9 +1062,16 @@
           <button type="button">Weekday afternoons</button>
           <button type="button">Flexible</button>
         </div>
-        <!-- When the scheduler or practice email exists, set data-mailto or data-scheduler
-             on this link and the JS below upgrades it automatically. -->
-        <a class="btn dark" id="intake-send" href="tel:+18179261300" data-mailto="admin@fortworthdentist.com" data-scheduler=""><span>Call to arrange — 817-926-1300</span></a>
+        <p class="intake-step"><span class="num">iv.</span> Where can we reach you?</p>
+        <div class="intake-fields">
+          <input type="text" id="intake-name" placeholder="First name" autocomplete="given-name" aria-label="First name">
+          <input type="text" id="intake-contact" placeholder="Phone or email" autocomplete="tel" aria-label="Phone or email">
+        </div>
+        <!-- data-formspree: create a form at formspree.io (points to admin@fortworthdentist.com),
+             paste the form ID here e.g. data-formspree="xkgqwzyv". Falls back to a prefilled
+             email if left empty. -->
+        <button class="btn dark" id="intake-send" type="button" data-formspree="xdaqawkp" data-mailto="admin@fortworthdentist.com"><span>Request your consultation</span></button>
+        <p class="intake-status" id="intake-status" role="status"></p>
         <p class="intake-alt">Or simply call — <a href="tel:+18179261300">817-926-1300</a></p>
       </div>
     </div>
@@ -1138,26 +1157,50 @@
       });
     });
     var send = document.getElementById('intake-send');
+    var status = document.getElementById('intake-status');
+    var formspree = send.getAttribute('data-formspree');
     var mailto = send.getAttribute('data-mailto');
-    var scheduler = send.getAttribute('data-scheduler');
-    function updateSend(){
-      if (scheduler){
-        send.setAttribute('href', scheduler);
-        send.querySelector('span').textContent = 'Request your consultation';
+    send.addEventListener('click', function(){
+      var name = document.getElementById('intake-name').value.trim();
+      var contact = document.getElementById('intake-contact').value.trim();
+      if (!contact){
+        status.textContent = 'Please add a phone number or email so we can reach you.';
+        document.getElementById('intake-contact').focus();
         return;
       }
-      if (mailto){
-        var body = 'Hello, I would like to request a private consultation.';
-        if (picks.goal) body += '\n\nSmile goal: ' + picks.goal;
-        if (picks.timeline) body += '\nTimeline: ' + picks.timeline;
-        if (picks.window) body += '\nPreferred window: ' + picks.window;
-        send.setAttribute('href', 'mailto:' + mailto +
-          '?subject=' + encodeURIComponent('Consultation request — Veneer Suite') +
-          '&body=' + encodeURIComponent(body));
-        send.querySelector('span').textContent = 'Request your consultation';
+      var payload = {
+        name: name || '(not given)',
+        contact: contact,
+        goal: picks.goal || '(not selected)',
+        timeline: picks.timeline || '(not selected)',
+        window: picks.window || '(not selected)',
+        _subject: 'Consultation request — Fort Worth Veneer Suite'
+      };
+      if (formspree){
+        send.setAttribute('disabled','');
+        status.textContent = 'Sending…';
+        fetch('https://formspree.io/f/' + formspree, {
+          method: 'POST',
+          headers: {'Content-Type':'application/json','Accept':'application/json'},
+          body: JSON.stringify(payload)
+        }).then(function(r){
+          if (r.ok){
+            status.textContent = 'Received — the team will reach out within one business day.';
+            send.querySelector('span').textContent = 'Request received';
+          } else { throw new Error(); }
+        }).catch(function(){
+          send.removeAttribute('disabled');
+          status.textContent = 'Something went wrong — please call 817-926-1300.';
+        });
+      } else if (mailto){
+        var body = 'Name: ' + payload.name + '\nContact: ' + payload.contact +
+          '\nSmile goal: ' + payload.goal + '\nTimeline: ' + payload.timeline +
+          '\nPreferred window: ' + payload.window;
+        window.location.href = 'mailto:' + mailto +
+          '?subject=' + encodeURIComponent(payload._subject) +
+          '&body=' + encodeURIComponent(body);
       }
-    }
-    updateSend();
+    });
   }
 
   /* scroll progress hairline */
