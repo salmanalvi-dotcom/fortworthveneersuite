@@ -211,6 +211,7 @@
     display:block;margin-top:44px;font-style:normal;
     font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);
   }
+  .phil-mark{width:170px;margin-top:26px;opacity:.9}
 
   /* ── transformations ────────────────────── */
   .transformations{padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px)}
@@ -281,6 +282,7 @@
   /* case 02: wide slider */
   .case-wide{max-width:1200px;margin:clamp(72px,10vh,110px) auto 0}
   .ba.wide{aspect-ratio:1080/475;cursor:ew-resize}
+  .ba.wide.c3{aspect-ratio:1320/740}
   .case-wide-caption{
     display:flex;gap:28px;align-items:baseline;flex-wrap:wrap;
     padding-top:20px;
@@ -347,6 +349,36 @@
   .btn.light::before{background:var(--porcelain)}
   @media (hover:hover) and (pointer:fine){
     .btn.light:hover{color:var(--ink)}
+  }
+
+  /* ── virtual consult ────────────────────── */
+  .virtual{
+    border-top:1px solid var(--hairline);
+    padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px);
+  }
+  .virtual .inner{max-width:1200px;margin:0 auto}
+  .virtual .eyebrow{margin-bottom:24px}
+  .virtual h2{font-size:clamp(38px,5vw,68px);margin-bottom:20px;max-width:14ch}
+  .virtual .lede{color:var(--stone);max-width:46ch;margin-bottom:clamp(48px,7vh,72px)}
+  .vstep{
+    display:grid;grid-template-columns:auto minmax(0,4fr) minmax(0,6fr);
+    gap:clamp(20px,3vw,48px);align-items:baseline;
+    padding:32px 0;border-top:1px solid var(--hairline);
+  }
+  .vstep:last-of-type{border-bottom:1px solid var(--hairline)}
+  .vstep .num{
+    font-family:var(--serif);font-weight:300;font-style:italic;
+    font-size:clamp(22px,2vw,28px);color:var(--brass);min-width:2.2em;
+  }
+  .vstep .t{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(22px,2.4vw,32px);line-height:1.15;
+  }
+  .vstep .d{color:var(--stone);font-size:15px;max-width:52ch}
+  .virtual .btn{margin-top:40px}
+  @media (max-width:880px){
+    .vstep{grid-template-columns:auto 1fr;grid-template-rows:auto auto}
+    .vstep .d{grid-column:2}
   }
 
   /* ── doctor ─────────────────────────────── */
@@ -642,16 +674,8 @@
   .studio .eyebrow{color:var(--brass-bright);margin-bottom:28px}
   .studio h2{font-size:clamp(34px,4.4vw,58px);margin-bottom:24px;max-width:14ch}
   .studio p{color:rgba(250,248,244,.62);font-size:16px;max-width:42ch;margin-bottom:16px}
-  .studio-media{
-    aspect-ratio:4/5;border:1px solid var(--hairline-light);
-    display:flex;align-items:center;justify-content:center;
-    text-align:center;padding:32px;
-  }
-  /* TODO: replace with photography / walkthrough film of the finished space */
-  .studio-media span{
-    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
-    color:var(--stone);line-height:2;
-  }
+  .studio-media{aspect-ratio:4/5;overflow:hidden;background:#000}
+  .studio-media img{width:100%;height:100%;object-fit:cover}
 
   /* ── contact ────────────────────────────── */
   .contact{padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px)}
@@ -738,6 +762,7 @@
     <!-- TODO: draft quote — requires Dr. Khan's sign-off before launch -->
     <blockquote class="display rv rv-d1">The best compliment my work can receive is that no one can tell it's there. A veneer should disappear into the way you laugh.</blockquote>
     <cite class="rv rv-d2">Dr. Khan · Veneer Suite</cite>
+    <img class="phil-mark rv rv-d3" src="media/dr-khan-mark.png" alt="" aria-hidden="true" loading="lazy">
   </div>
 </section>
 
@@ -798,6 +823,24 @@
     </blockquote>
   </article>
 
+  <!-- CASE 03 — from her February minimal-prep post -->
+  <article class="case-wide">
+    <div class="ba wide c3 rv" data-ba tabindex="0" role="slider" aria-label="Before and after comparison, drag or use arrow keys" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <img src="media/veneer-case-03-before.jpg" alt="Smile before minimal-prep veneers" loading="lazy">
+      <div class="after-wrap">
+        <img src="media/veneer-case-03-after.jpg" alt="Smile after minimal-prep porcelain veneers by Dr. Khan" loading="lazy">
+      </div>
+      <span class="label before">Before</span>
+      <span class="label after">After</span>
+      <div class="handle"></div>
+    </div>
+    <div class="case-wide-caption">
+      <p class="eyebrow rv">Case 03</p>
+      <!-- TODO: Dr. Khan to confirm clinical caption -->
+      <p class="rv rv-d1">Minimal-prep porcelain veneers — brightness and proportion refined while keeping the smile unmistakably hers.</p>
+    </div>
+  </article>
+
   <!-- CASE FILMS — tap to play, one at a time -->
   <div class="films-head">
     <h3 class="display rv">Case films</h3>
@@ -827,8 +870,33 @@
       <!-- TODO: Dr. Khan to approve framing of her "Facelifting Veneers" concept -->
       <p class="rv rv-d2">A smile doesn't stop at the teeth. Worn, shortened teeth let the lower face collapse inward; restoring their proportion supports the lips and softens the look of the whole face — a lift, without surgery.</p>
       <p class="rv rv-d3">It's why every case here begins with a full-face study, and why you see your designed smile — on you, in motion — before you commit to anything.</p>
-      <a class="btn light rv rv-d3" href="#contact"><span>See yours first</span></a>
+      <a class="btn light rv rv-d3" href="https://app.smileviz.com/consult/drkhanveneers" target="_blank" rel="noopener"><span>See yours first</span></a>
     </div>
+  </div>
+</section>
+
+<!-- ══ VIRTUAL CONSULT ══ -->
+<section class="virtual" id="virtual-consult">
+  <div class="inner">
+    <p class="eyebrow rv">The virtual consult · Complimentary</p>
+    <h2 class="display rv rv-d1">Begin from anywhere.</h2>
+    <p class="lede rv rv-d2">Before you ever visit the studio, Dr. Khan will review your smile personally — no office visit, no obligation.</p>
+    <div class="vstep rv">
+      <span class="num">i.</span>
+      <span class="t">Send two photos</span>
+      <span class="d">A front-facing smile and a profile — taken on your phone, from anywhere.</span>
+    </div>
+    <div class="vstep rv rv-d1">
+      <span class="num">ii.</span>
+      <span class="t">Dr. Khan reviews your case</span>
+      <span class="d">You receive a personalized video from Dr. Khan herself, walking through what's possible for your smile and the treatment options that fit it.</span>
+    </div>
+    <div class="vstep rv rv-d2">
+      <span class="num">iii.</span>
+      <span class="t">Receive your estimate</span>
+      <span class="d">A custom estimate with transparent pricing, tailored to your goals — real answers before any commitment.</span>
+    </div>
+    <a class="btn dark rv rv-d3" href="https://app.smileviz.com/consult/drkhanveneers" target="_blank" rel="noopener"><span>Start your virtual consult</span></a>
   </div>
 </section>
 
@@ -968,8 +1036,12 @@
         <div class="a"><p>Typically two to three: a consultation and smile study, then a design preview, then placement. No-shave cases usually skip temporaries entirely, so you wear nothing artificial while your porcelain is being crafted.</p></div>
       </details>
       <details class="rv">
+        <summary>Can I start without visiting the studio?<span class="ind">+</span></summary>
+        <div class="a"><p>Yes — Dr. Khan offers a complimentary virtual smile consultation. Send two photos of your smile (front-facing and profile) and she personally reviews your case, replying with a video walking through what's possible and a custom estimate with transparent pricing. No office visit, no obligation. <a href="https://app.smileviz.com/consult/drkhanveneers" target="_blank" rel="noopener" style="color:var(--brass)">Start your virtual consult here</a>.</p></div>
+      </details>
+      <details class="rv">
         <summary>What does it cost?<span class="ind">+</span></summary>
-        <div class="a"><p>It depends on how many teeth we're designing and what the case requires — a two-veneer refinement and a full smile design are very different projects. You'll get exact, transparent numbers at your consultation before any decision is made, with no pressure attached.<!-- TODO: confirm financing offering before publishing this sentence --> Financing options are available and we'll walk you through them.</p></div>
+        <div class="a"><p>It depends on how many teeth we're designing and what the case requires — a two-veneer refinement and a full smile design are very different projects. You'll get exact, transparent numbers before any decision is made, with no pressure attached — the fastest route is the complimentary virtual consult, which includes a custom estimate tailored to your goals.<!-- TODO: confirm financing offering before publishing this sentence --> Financing options are available and we'll walk you through them.</p></div>
       </details>
     </div>
   </div>
@@ -1013,8 +1085,8 @@
       <p class="rv rv-d3">416 S Henderson St, Fort Worth, TX 76104 · Opening late summer 2026. Serving Fort Worth from the Near Southside — minutes from the Medical District, Magnolia Avenue, downtown, and TCU.</p>
     </div>
     <div class="studio-media rv rv-d1">
-      <!-- TODO: swap in real photography / walkthrough film of the finished space -->
-      <span>Studio photography<br>arriving with the<br>finished space</span>
+      <img src="media/craft-porcelain.jpg" alt="Hand-layered porcelain veneers by Dr. Khan, photographed on a black model" loading="lazy">
+      <!-- Swap for walkthrough film / space photography when the build-out wraps (Aug) -->
     </div>
   </div>
 </section>
@@ -1300,7 +1372,9 @@
   }
 })();
 </script>
-<script src="agent/concierge-widget.js" data-endpoint="https://veneer-concierge.salman-alvi.workers.dev" defer></script>   
+<!-- Concierge agent: set data-endpoint="/api/concierge" after deploying agent/ backend (see agent/README.md).
+     With an empty endpoint the button gracefully scrolls to the intake instead. -->
+<script src="agent/concierge-widget.js" data-endpoint="" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1338,6 +1412,7 @@
     {"@type":"Question","name":"Am I a candidate for no-prep veneers?","acceptedAnswer":{"@type":"Answer","text":"Many people are, especially those with smaller teeth, gaps, worn edges, or smiles that could use more fullness. Teeth that are already prominent or significantly crowded may do better with a minimal-prep approach. A consultation determines candidacy."}},
     {"@type":"Question","name":"Does getting no-shave veneers hurt?","acceptedAnswer":{"@type":"Answer","text":"No-shave cases are typically entirely comfortable — most patients need no anesthetic because no tooth structure is drilled. Minimal-prep cases involve only conservative surface refinement."}},
     {"@type":"Question","name":"How long do porcelain veneers last?","acceptedAnswer":{"@type":"Answer","text":"With good home care and routine visits, porcelain veneers commonly last a decade or more. Porcelain bonded to conserved enamel holds stronger over time than porcelain bonded to deeper tooth structure."}},
+    {"@type":"Question","name":"Can I get a veneer consultation without visiting the office?","acceptedAnswer":{"@type":"Answer","text":"Yes. Dr. Khan offers a complimentary virtual smile consultation: send two photos of your smile (front-facing and profile) and she personally reviews your case, replying with a video covering treatment options and a custom estimate with transparent pricing. No office visit or obligation required."}},
     {"@type":"Question","name":"How many visits do veneers take?","acceptedAnswer":{"@type":"Answer","text":"Typically two to three: a consultation and smile study, a design preview, then placement. No-shave cases usually skip temporary veneers entirely."}}
   ]
 }
