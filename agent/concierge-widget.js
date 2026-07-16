@@ -72,10 +72,20 @@
   var history = [];
   var busy = false;
 
+  function esc(s){
+    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
+  function linkify(s){
+    return esc(s).replace(/(https?:\/\/[^\s<]+)/g, function(u){
+      return '<a href="' + u + '" target="_blank" rel="noopener">' + u.replace(/^https?:\/\//,'') + '</a>';
+    });
+  }
   function add(role, text, asHTML) {
     var m = document.createElement("div");
     m.className = "cg-msg " + (role === "user" ? "u" : "a");
-    if (asHTML) m.innerHTML = text; else m.textContent = text;
+    if (asHTML) m.innerHTML = text;
+    else if (role !== "user" && /https?:\/\//.test(text)) m.innerHTML = linkify(text);
+    else m.textContent = text;
     log.appendChild(m);
     log.scrollTop = log.scrollHeight;
     return m;
