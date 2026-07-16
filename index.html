@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fort Worth Veneer Suite — No-Shave &amp; Minimal-Prep Veneers by Dr. Khan</title>
+<meta name="description" content="No-shave and minimal-prep porcelain veneers by Dr. Khan. Enamel-preserving smile design in a private Fort Worth studio. 416 S Henderson St, Fort Worth, TX.">
+<!--
+  ═══════════════════════════════════════════════════════════════
+  VENEER SUITE v2 — handoff notes
+  ─────────────────────────────────────────────
+  MEDIA (/media):
+    veneer-hero.mp4 / -poster.jpg ......... AI-generated hero film (NOT a patient;
+                                            intentionally uncaptioned — do not add
+                                            an "actual patient" tag here)
+    veneer-case-01.mp4 / stills .......... REAL patient footage (Transformations)
+    veneer-case-02-before/-after.jpg ..... split from IMG_7007 stacked before/after
+    facelifting-veneers.jpg .............. IMG_6970 campaign graphic (Signature section)
+    reel-02..08.mp4 / posters ............ case film gallery, audio kept, source map:
+        reel-02 <- copy_0AB60864   reel-03 <- copy_34904F47
+        reel-04 <- copy_3A23583A   reel-05 <- copy_86D80703
+        reel-06 <- copy_8AF91D0B   reel-07 <- copy_DE571486 (53s)
+        reel-08 <- 29d828d2ecee
+    To add cases: duplicate a .case block, point at new files.
+
+  REVIEWS: pulled verbatim (trimmed) from the practice's Google listing
+  ("Fort Worth Dentist", 4.8★ · 225 reviews, July 2026). Reviewer names
+  were not available via the listing data — attributed as verified
+  Google reviews. Swap in named versions if desired.
+
+  STILL TODO (search "TODO"):
+    · Email address + booking link
+    · Phone — currently the practice's Google-listed line (817-926-1300);
+      swap if Veneer Suite gets a dedicated number
+    · Dr. Khan quote in Philosophy — DRAFT, needs her sign-off
+    · Studio photography slot (August)
+
+  DO NOT publish until signed patient media releases are on file.
+  ═══════════════════════════════════════════════════════════════
+-->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="canonical" href="https://fortworthveneersuite.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Fort Worth Veneer Suite">
+<meta property="og:title" content="Fort Worth Veneer Suite — No-Shave &amp; Minimal-Prep Veneers by Dr. Khan">
+<meta property="og:description" content="No-shave and minimal-prep porcelain veneers by Dr. Khan. Enamel-preserving smile design in a private Fort Worth studio. 416 S Henderson St, Fort Worth, TX.">
+<meta property="og:image" content="https://fortworthveneersuite.com/media/og-image.jpg">
+<meta property="og:url" content="https://fortworthveneersuite.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fort Worth Veneer Suite — No-Shave &amp; Minimal-Prep Veneers by Dr. Khan">
+<meta name="twitter:image" content="https://fortworthveneersuite.com/media/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --porcelain:#FAF8F4;
+    --ink:#161310;
+    --graphite:#211E1A;
+    --brass:#A9895B;
+    --brass-bright:#C4A470;
+    --stone:#8A837A;
+    --hairline:rgba(22,19,16,.14);
+    --hairline-light:rgba(250,248,244,.18);
+    --ease-out:cubic-bezier(0.23,1,0.32,1);
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Inter',-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{
+    background:var(--porcelain);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--brass);color:var(--porcelain)}
+  img,video{display:block;max-width:100%}
+
+  .eyebrow{
+    font-size:11px;font-weight:500;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--brass);
+  }
+  .display{
+    font-family:var(--serif);font-weight:300;
+    line-height:1.04;letter-spacing:-.01em;
+  }
+  .display em{font-style:italic;font-weight:300}
+
+  /* reveal motion */
+  .rv{opacity:0;transform:translateY(18px)}
+  .rv.in{
+    opacity:1;transform:translateY(0);
+    transition:opacity .55s var(--ease-out),transform .55s var(--ease-out);
+  }
+  .rv-d1.in{transition-delay:.06s}
+  .rv-d2.in{transition-delay:.12s}
+  .rv-d3.in{transition-delay:.18s}
+  @media (prefers-reduced-motion:reduce){
+    .rv{transform:none}
+    .rv.in{transition:opacity .3s ease;transition-delay:0s!important}
+  }
+
+  /* scroll progress — brass hairline */
+  #progress{
+    position:fixed;top:0;left:0;height:2px;width:100%;z-index:60;
+    background:var(--brass);
+    transform:scaleX(0);transform-origin:left;
+  }
+
+  nav{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px clamp(24px,5vw,64px);
+    mix-blend-mode:difference;color:var(--porcelain);
+  }
+  .wordmark{
+    font-family:var(--serif);font-size:20px;font-weight:400;
+    letter-spacing:.08em;text-transform:uppercase;
+    color:inherit;text-decoration:none;
+  }
+  .nav-cta{
+    font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+    color:inherit;text-decoration:none;
+    padding-bottom:3px;border-bottom:1px solid currentColor;
+  }
+
+  /* ── hero: full-bleed film ──────────────── */
+  .hero{
+    position:relative;min-height:100svh;
+    display:flex;align-items:flex-end;
+    color:var(--porcelain);overflow:hidden;
+  }
+  .hero video{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  }
+  .hero .scrim{
+    position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(22,19,16,.78) 0%,rgba(22,19,16,.25) 45%,rgba(22,19,16,.12) 100%);
+  }
+  .hero-copy{
+    position:relative;z-index:2;width:100%;
+    padding:0 clamp(24px,5vw,72px) clamp(56px,10vh,110px);
+  }
+  .hero-copy .eyebrow{color:var(--brass-bright);margin-bottom:24px}
+  .hero h1{
+    font-size:clamp(52px,7.5vw,112px);
+    max-width:12ch;margin-bottom:28px;
+  }
+  .hero h1 .w{display:inline-block;opacity:0;transform:translateY(24px)}
+  .hero.loaded h1 .w{
+    opacity:1;transform:translateY(0);
+    transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);
+    transition-delay:calc(var(--i)*70ms + 150ms);
+  }
+  @media (prefers-reduced-motion:reduce){
+    .hero h1 .w{transform:none}
+    .hero.loaded h1 .w{transition:opacity .4s ease;transition-delay:0s}
+  }
+  .hero-sub{max-width:44ch;color:rgba(250,248,244,.78);font-size:17px;margin-bottom:32px}
+  .hero-row{
+    display:flex;align-items:center;gap:36px;flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex;align-items:center;
+    font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--porcelain);text-decoration:none;
+    border:1px solid var(--porcelain);
+    padding:18px 32px;
+    position:relative;overflow:hidden;
+    transition:color .25s var(--ease-out);
+  }
+  .btn::before{
+    content:"";position:absolute;inset:0;background:var(--porcelain);
+    transform:scaleX(0);transform-origin:left;
+    transition:transform .3s var(--ease-out);
+  }
+  .btn span{position:relative;z-index:1}
+  @media (hover:hover) and (pointer:fine){
+    .btn:hover{color:var(--ink)}
+    .btn:hover::before{transform:scaleX(1)}
+  }
+  .btn:active{transform:scale(.985)}
+  .btn.dark{color:var(--ink);border-color:var(--ink)}
+  .btn.dark::before{background:var(--ink)}
+  @media (hover:hover) and (pointer:fine){
+    .btn.dark:hover{color:var(--porcelain)}
+  }
+  .btn:focus-visible,a:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+  .rating-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:13px;color:rgba(250,248,244,.85);
+    text-decoration:none;
+  }
+  .rating-badge .stars{color:var(--brass-bright);letter-spacing:2px;font-size:14px}
+  .rating-badge:hover{color:var(--porcelain)}
+
+  /* ── philosophy ─────────────────────────── */
+  .philosophy{
+    background:var(--graphite);color:var(--porcelain);
+    padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px);
+  }
+  .philosophy .inner{max-width:1080px;margin:0 auto}
+  .philosophy .eyebrow{color:var(--brass-bright);margin-bottom:40px}
+  .philosophy blockquote{
+    font-family:var(--serif);font-weight:300;font-style:italic;
+    font-size:clamp(30px,4.4vw,58px);line-height:1.18;max-width:24ch;
+  }
+  .philosophy cite{
+    display:block;margin-top:44px;font-style:normal;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--stone);
+  }
+
+  /* ── transformations ────────────────────── */
+  .transformations{padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px)}
+  .transformations .head{
+    max-width:1200px;margin:0 auto clamp(56px,8vh,88px);
+    display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;
+  }
+  .transformations h2{font-size:clamp(38px,5vw,68px);max-width:12ch}
+  .transformations .head p{max-width:34ch;color:var(--stone);font-size:15px}
+  .case{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:minmax(0,5fr) minmax(0,4fr) minmax(0,3fr);
+    gap:clamp(28px,3.5vw,52px);align-items:end;
+  }
+  .ba{
+    position:relative;overflow:hidden;aspect-ratio:9/12;
+    background:var(--graphite);
+    user-select:none;-webkit-user-select:none;
+    touch-action:pan-y;cursor:ew-resize;
+  }
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+  .ba .after-wrap{position:absolute;inset:0;clip-path:inset(0 0 0 var(--x,50%))}
+  .ba .label{
+    position:absolute;top:20px;z-index:3;
+    font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--porcelain);padding:7px 12px;background:rgba(22,19,16,.55);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  }
+  .ba .label.before{left:20px}
+  .ba .label.after{right:20px}
+  .ba .handle{
+    position:absolute;top:0;bottom:0;left:var(--x,50%);z-index:4;
+    width:1px;background:var(--brass-bright);transform:translateX(-.5px);
+  }
+  .ba .handle::after{
+    content:"⟨ ⟩";
+    position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:44px;height:44px;border-radius:50%;
+    background:var(--brass);color:var(--porcelain);
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;letter-spacing:2px;
+    box-shadow:0 2px 14px rgba(22,19,16,.35);
+    transition:transform .15s var(--ease-out);
+  }
+  .ba:active .handle::after{transform:translate(-50%,-50%) scale(.94)}
+  .case-video{
+    position:relative;aspect-ratio:9/12;overflow:hidden;background:var(--graphite);
+  }
+  .case-video video{width:100%;height:100%;object-fit:cover}
+  .case-video .tag{
+    position:absolute;left:16px;bottom:16px;
+    color:var(--porcelain);font-size:10px;font-weight:500;
+    letter-spacing:.2em;text-transform:uppercase;
+    padding:7px 12px;background:rgba(22,19,16,.55);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  }
+  .case-info .eyebrow{margin-bottom:20px}
+  .case-info h3{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(24px,2.4vw,32px);line-height:1.15;margin-bottom:16px;
+  }
+  .case-info p{color:var(--stone);font-size:15px}
+  .consent-note{
+    max-width:1200px;margin:32px auto 0;
+    font-size:12px;color:var(--stone);
+  }
+
+  /* case 02: wide slider */
+  .case-wide{max-width:1200px;margin:clamp(72px,10vh,110px) auto 0}
+  .ba.wide{aspect-ratio:1080/475;cursor:ew-resize}
+  .case-wide-caption{
+    display:flex;gap:28px;align-items:baseline;flex-wrap:wrap;
+    padding-top:20px;
+  }
+  .case-wide-caption p:last-child{color:var(--stone);font-size:15px;max-width:60ch}
+
+  /* case films gallery */
+  .films-head{
+    max-width:1200px;margin:clamp(72px,10vh,110px) auto 28px;
+    display:flex;justify-content:space-between;align-items:baseline;gap:32px;flex-wrap:wrap;
+  }
+  .films-head h3{font-size:clamp(26px,3vw,40px);font-weight:300}
+  .films-head p{color:var(--stone);font-size:14px}
+  .films{
+    max-width:1200px;margin:0 auto;
+    display:flex;gap:16px;
+    overflow-x:auto;scroll-snap-type:x mandatory;
+    padding-bottom:16px;
+    scrollbar-width:thin;scrollbar-color:var(--brass) transparent;
+  }
+  .films::-webkit-scrollbar{height:4px}
+  .films::-webkit-scrollbar-thumb{background:var(--brass)}
+  .reel{
+    position:relative;flex:0 0 auto;
+    width:clamp(200px,24vw,280px);aspect-ratio:9/16;
+    scroll-snap-align:start;
+    background:var(--graphite);overflow:hidden;
+    cursor:pointer;
+  }
+  .reel video{width:100%;height:100%;object-fit:cover}
+  .reel .play{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--porcelain);font-size:20px;
+    background:rgba(22,19,16,.25);
+    transition:opacity .3s var(--ease-out);
+  }
+  .reel .play::before{
+    content:"";position:absolute;
+    width:56px;height:56px;border-radius:50%;
+    border:1px solid rgba(250,248,244,.8);
+    transition:transform .3s var(--ease-out);
+  }
+  @media (hover:hover) and (pointer:fine){
+    .reel:hover .play::before{transform:scale(1.08)}
+  }
+  .reel.playing .play{opacity:0;pointer-events:none}
+
+  /* signature: facelifting veneers */
+  .signature{
+    background:var(--graphite);color:var(--porcelain);
+    padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px);
+  }
+  .signature .inner{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);
+    gap:clamp(40px,6vw,88px);align-items:center;
+  }
+  .signature-media img{width:100%;height:auto}
+  .signature .eyebrow{color:var(--brass-bright);margin-bottom:24px}
+  .signature h2{font-size:clamp(38px,5vw,68px);margin-bottom:24px}
+  .signature p{color:rgba(250,248,244,.62);font-size:16px;max-width:46ch;margin-bottom:18px}
+  .btn.light{color:var(--porcelain);border-color:var(--porcelain);margin-top:14px}
+  .btn.light::before{background:var(--porcelain)}
+  @media (hover:hover) and (pointer:fine){
+    .btn.light:hover{color:var(--ink)}
+  }
+
+  /* ── doctor ─────────────────────────────── */
+  .doctor{
+    border-top:1px solid var(--hairline);
+    padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px);
+  }
+  .doctor .inner{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);
+    gap:clamp(40px,6vw,88px);align-items:center;
+  }
+  .doctor-media{
+    aspect-ratio:4/5;overflow:hidden;background:var(--graphite);
+  }
+  .doctor-media img{
+    width:100%;height:100%;object-fit:cover;object-position:top;
+  }
+  .doctor .eyebrow{margin-bottom:24px}
+  .doctor h2{font-size:clamp(38px,5vw,68px);margin-bottom:24px}
+  .doctor p{color:#3A362F;font-size:16px;max-width:52ch;margin-bottom:18px}
+  .doctor .creds{
+    font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--brass);line-height:2.1;max-width:60ch;
+    padding:16px 0 6px;border-top:1px solid var(--hairline);
+  }
+  .textlink{
+    display:inline-block;
+    font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink);text-decoration:none;
+    padding-bottom:4px;
+    background:linear-gradient(var(--brass),var(--brass)) left bottom / 0% 1px no-repeat;
+    transition:background-size .3s var(--ease-out);
+  }
+  @media (hover:hover) and (pointer:fine){
+    .textlink:hover{background-size:100% 1px}
+  }
+
+  /* ── sticky mobile action bar ───────────── */
+  .actionbar{display:none}
+  @media (max-width:880px){
+    .actionbar{
+      position:fixed;left:0;right:0;bottom:0;z-index:55;
+      display:grid;grid-template-columns:1fr 1fr;
+      background:var(--ink);
+      padding-bottom:env(safe-area-inset-bottom);
+      transform:translateY(100%);
+      transition:transform .4s var(--ease-out);
+    }
+    .actionbar.show{transform:translateY(0)}
+    .actionbar a{
+      display:flex;align-items:center;justify-content:center;
+      padding:18px 12px;
+      font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--porcelain);text-decoration:none;
+    }
+    .actionbar a + a{border-left:1px solid rgba(250,248,244,.15)}
+    .actionbar a.book{background:var(--brass);color:var(--ink)}
+    body{padding-bottom:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .actionbar{transition:none}
+  }
+
+  .case-quote{
+    max-width:1200px;margin:40px auto 0;
+    border-left:1px solid var(--brass);padding-left:28px;
+  }
+  .case-quote p{
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:clamp(21px,2.2vw,28px);line-height:1.35;max-width:34ch;
+    margin-bottom:14px;
+  }
+  .case-quote cite{
+    font-style:normal;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--stone);
+  }
+
+  /* concierge intake */
+  .intake{max-width:480px}
+  .intake-step{
+    font-size:13px;color:var(--ink);margin:26px 0 12px;
+    letter-spacing:.02em;
+  }
+  .intake-step .num{
+    font-family:var(--serif);font-style:italic;color:var(--brass);
+    margin-right:10px;
+  }
+  .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .pills button{
+    font-family:var(--sans);font-size:12.5px;letter-spacing:.03em;
+    padding:11px 18px;cursor:pointer;
+    background:transparent;color:var(--ink);
+    border:1px solid var(--hairline);border-radius:999px;
+    transition:border-color .2s ease,background .25s var(--ease-out),color .25s var(--ease-out);
+  }
+  @media (hover:hover) and (pointer:fine){
+    .pills button:hover{border-color:var(--brass)}
+  }
+  .pills button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+  .pills button[aria-pressed="true"]{
+    background:var(--ink);color:var(--porcelain);border-color:var(--ink);
+  }
+  .pills button:active{transform:scale(.97)}
+  #intake-send{margin-top:32px}
+  .intake-alt{margin-top:18px;font-size:13px;color:var(--stone)}
+  .intake-alt a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--brass)}
+
+  /* ── first visit: a real sequence ───────── */
+  .visit{
+    background:var(--graphite);color:var(--porcelain);
+    padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px);
+  }
+  .visit .inner{max-width:1200px;margin:0 auto}
+  .visit .eyebrow{color:var(--brass-bright);margin-bottom:24px}
+  .visit h2{font-size:clamp(38px,5vw,68px);margin-bottom:20px;max-width:14ch}
+  .visit .lede{color:rgba(250,248,244,.62);max-width:46ch;margin-bottom:clamp(48px,7vh,72px)}
+  .step{
+    display:grid;grid-template-columns:auto minmax(0,4fr) minmax(0,6fr);
+    gap:clamp(20px,3vw,48px);align-items:baseline;
+    padding:32px 0;border-top:1px solid var(--hairline-light);
+  }
+  .step:last-child{border-bottom:1px solid var(--hairline-light)}
+  .step .num{
+    font-family:var(--serif);font-weight:300;font-style:italic;
+    font-size:clamp(22px,2vw,28px);color:var(--brass-bright);min-width:2.2em;
+  }
+  .step .t{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(22px,2.4vw,32px);line-height:1.15;
+  }
+  .step .d{color:rgba(250,248,244,.62);font-size:15px;max-width:52ch}
+
+  /* ── services: editorial ledger ─────────── */
+  .services{
+    border-top:1px solid var(--hairline);
+    padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px);
+  }
+  .services .inner{max-width:1200px;margin:0 auto}
+  .services h2{font-size:clamp(38px,5vw,68px);margin-bottom:clamp(48px,7vh,80px)}
+  .svc{
+    display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) auto;
+    gap:32px;align-items:baseline;
+    padding:36px 0;border-top:1px solid var(--hairline);
+    text-decoration:none;color:inherit;
+  }
+  .svc:last-child{border-bottom:1px solid var(--hairline)}
+  .svc .name{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(26px,3vw,40px);line-height:1.1;
+    transition:color .2s ease;
+  }
+  .svc .desc{color:var(--stone);font-size:15px;max-width:44ch}
+  .svc .go{font-size:18px;color:var(--brass);transition:transform .25s var(--ease-out)}
+  @media (hover:hover) and (pointer:fine){
+    .svc:hover .name{color:var(--brass)}
+    .svc:hover .go{transform:translateX(6px)}
+  }
+
+  /* ── reviews ────────────────────────────── */
+  .reviews{padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px)}
+  .reviews .inner{max-width:1200px;margin:0 auto}
+  .reviews .head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:40px;flex-wrap:wrap;margin-bottom:clamp(48px,7vh,80px);
+  }
+  .reviews h2{font-size:clamp(38px,5vw,68px);max-width:12ch}
+  .g-badge{
+    display:inline-flex;flex-direction:column;gap:4px;
+    text-decoration:none;color:var(--ink);
+  }
+  .g-badge .score{
+    font-family:var(--serif);font-weight:300;font-size:44px;line-height:1;
+  }
+  .g-badge .stars{color:var(--brass);letter-spacing:3px}
+  .g-badge .meta{font-size:12px;color:var(--stone);letter-spacing:.06em}
+  @media (hover:hover) and (pointer:fine){
+    .g-badge:hover .meta{color:var(--ink)}
+  }
+  .review-grid{
+    display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(24px,3vw,44px);
+  }
+  .review{
+    border-top:1px solid var(--hairline);padding-top:28px;
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .review .stars{color:var(--brass);letter-spacing:3px;font-size:13px}
+  .review q{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(19px,1.7vw,23px);line-height:1.4;quotes:"“" "”";
+  }
+  .review .who{font-size:12px;color:var(--stone);letter-spacing:.08em;text-transform:uppercase}
+
+  /* ── faq ────────────────────────────────── */
+  .faq{
+    border-top:1px solid var(--hairline);
+    padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px);
+  }
+  .faq .inner{max-width:900px;margin:0 auto}
+  .faq-head{margin-bottom:clamp(48px,7vh,72px)}
+  .faq .eyebrow{margin-bottom:20px}
+  .faq h2{font-size:clamp(32px,4.2vw,54px);max-width:18ch}
+  .faq details{border-top:1px solid var(--hairline)}
+  .faq details:last-child{border-bottom:1px solid var(--hairline)}
+  .faq summary{
+    list-style:none;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:baseline;gap:24px;
+    padding:26px 0;
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(20px,2vw,26px);line-height:1.25;
+    transition:color .2s ease;
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq .ind{
+    font-family:var(--sans);font-size:18px;color:var(--brass);
+    transition:transform .3s var(--ease-out);flex-shrink:0;
+  }
+  .faq details[open] .ind{transform:rotate(45deg)}
+  @media (hover:hover) and (pointer:fine){
+    .faq summary:hover{color:var(--brass)}
+  }
+  .faq .a{padding:0 0 28px;max-width:62ch}
+  .faq .a p{color:var(--stone);font-size:15.5px}
+  .faq details[open] .a{animation:faqIn .4s var(--ease-out)}
+  @keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+  @media (prefers-reduced-motion:reduce){
+    .faq details[open] .a{animation:none}
+  }
+
+  /* ── journal ────────────────────────────── */
+  .journal{
+    border-top:1px solid var(--hairline);
+    padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px);
+  }
+  .journal .inner{max-width:1200px;margin:0 auto}
+  .journal-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:40px;flex-wrap:wrap;margin-bottom:clamp(48px,7vh,72px);
+  }
+  .journal h2{font-size:clamp(38px,5vw,68px)}
+  .journal-head p{max-width:36ch;color:var(--stone);font-size:15px}
+  .post{
+    display:grid;
+    grid-template-columns:minmax(0,2fr) minmax(0,5fr) minmax(0,4fr) auto;
+    gap:clamp(16px,2.5vw,40px);align-items:baseline;
+    padding:32px 0;border-top:1px solid var(--hairline);
+    text-decoration:none;color:inherit;
+  }
+  .post:last-child{border-bottom:1px solid var(--hairline)}
+  .post-eyebrow{
+    font-size:10px;font-weight:500;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--brass);
+  }
+  .post-title{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(21px,2.2vw,29px);line-height:1.2;
+    transition:color .2s ease;
+  }
+  .post-line{color:var(--stone);font-size:14px}
+  .post .go{
+    font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--brass);white-space:nowrap;
+    transition:transform .25s var(--ease-out);
+  }
+  @media (hover:hover) and (pointer:fine){
+    .post:hover .post-title{color:var(--brass)}
+    .post:hover .go{transform:translateX(6px)}
+  }
+
+  /* ── studio ─────────────────────────────── */
+  .studio{
+    background:var(--graphite);color:var(--porcelain);
+    padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px);
+  }
+  .studio .inner{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:clamp(40px,6vw,88px);align-items:center;
+  }
+  .studio .eyebrow{color:var(--brass-bright);margin-bottom:28px}
+  .studio h2{font-size:clamp(34px,4.4vw,58px);margin-bottom:24px;max-width:14ch}
+  .studio p{color:rgba(250,248,244,.62);font-size:16px;max-width:42ch;margin-bottom:16px}
+  .studio-media{
+    aspect-ratio:4/5;border:1px solid var(--hairline-light);
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:32px;
+  }
+  /* TODO: replace with photography / walkthrough film of the finished space */
+  .studio-media span{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--stone);line-height:2;
+  }
+
+  /* ── contact ────────────────────────────── */
+  .contact{padding:clamp(110px,16vh,180px) clamp(24px,5vw,72px)}
+  .contact .inner{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    gap:clamp(40px,6vw,88px);
+  }
+  .contact h2{font-size:clamp(38px,5vw,68px);margin-bottom:36px;max-width:10ch}
+  .contact dl{display:grid;gap:28px;margin-bottom:44px}
+  .contact dt{
+    font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--brass);margin-bottom:6px;
+  }
+  .contact dd{font-size:17px}
+  .contact dd a{color:inherit;text-decoration:none}
+  .map{aspect-ratio:4/5;background:var(--graphite)}
+  .map iframe{width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)}
+
+  footer{
+    border-top:1px solid var(--hairline);
+    padding:36px clamp(24px,5vw,72px);
+    display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+    font-size:12px;color:var(--stone);letter-spacing:.04em;
+  }
+
+  @media (max-width:960px){
+    .case{grid-template-columns:1fr 1fr}
+    .case-info{grid-column:1 / -1}
+    .review-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:880px){
+    .studio .inner,.contact .inner{grid-template-columns:1fr}
+    .signature .inner{grid-template-columns:1fr}
+    .signature-media{max-width:420px}
+    .svc{grid-template-columns:1fr;gap:10px}
+    .svc .go{display:none}
+    .post{grid-template-columns:1fr;gap:8px}
+    .post .go{justify-self:start}
+    .step{grid-template-columns:auto 1fr;grid-template-rows:auto auto}
+    .step .d{grid-column:2}
+    .transformations .head,.reviews .head{flex-direction:column;align-items:flex-start}
+  }
+  @media (max-width:640px){
+    .case{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress" aria-hidden="true"></div>
+
+<nav>
+  <a class="wordmark" href="#top">Veneer Suite</a>
+  <a class="nav-cta" href="#contact">Book a Consultation</a>
+</nav>
+
+<!-- ══ HERO — cinematic film (AI-generated, intentionally uncaptioned) ══ -->
+<header class="hero" id="top">
+  <video autoplay muted loop playsinline
+         poster="media/veneer-hero-poster.jpg"
+         aria-hidden="true">
+    <source src="media/veneer-hero.mp4" type="video/mp4">
+  </video>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <p class="eyebrow">Fort Worth, Texas · By appointment</p>
+    <h1 class="display" id="hero-h1">A smile designed to be&nbsp;<em>yours.</em></h1>
+    <p class="hero-sub rv">No-shave and minimal-prep porcelain veneers by Dr. Khan — smile design that preserves your natural enamel, in a private Fort Worth studio.</p>
+    <div class="hero-row">
+      <a class="btn rv" href="#contact"><span>Book a Consultation</span></a>
+      <a class="rating-badge rv rv-d1" href="https://maps.app.goo.gl/hovSmxJpayCkxxR79" target="_blank" rel="noopener">
+        <span class="stars">★★★★★</span>
+        <span>4.8 · 225 Google reviews</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ══ PHILOSOPHY ══ -->
+<section class="philosophy">
+  <div class="inner">
+    <p class="eyebrow rv">Our philosophy</p>
+    <!-- TODO: draft quote — requires Dr. Khan's sign-off before launch -->
+    <blockquote class="display rv rv-d1">The best compliment my work can receive is that no one can tell it's there. A veneer should disappear into the way you laugh.</blockquote>
+    <cite class="rv rv-d2">Dr. Khan · Veneer Suite</cite>
+  </div>
+</section>
+
+<!-- ══ TRANSFORMATIONS ══ -->
+<section class="transformations" id="transformations">
+  <div class="head">
+    <h2 class="display rv">Transformations</h2>
+    <p class="rv rv-d1">Real patients, unretouched. Drag the handle to compare — or watch the reveal as it happened.</p>
+  </div>
+
+  <!-- CASE 01 — duplicate this block per case -->
+  <article class="case">
+    <div class="ba rv" data-ba tabindex="0" role="slider" aria-label="Before and after comparison, drag or use arrow keys" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <img src="media/veneer-case-01-before.jpg" alt="Smile before treatment" loading="lazy">
+      <div class="after-wrap">
+        <img src="media/veneer-case-01-after.jpg" alt="Smile after minimal-prep porcelain veneers" loading="lazy">
+      </div>
+      <span class="label before">Before</span>
+      <span class="label after">After</span>
+      <div class="handle"></div>
+    </div>
+    <div class="case-video rv rv-d1">
+      <video muted loop playsinline preload="none"
+             poster="media/veneer-case-01-poster.jpg"
+             aria-label="Patient smile transformation film">
+        <source src="media/veneer-case-01.mp4" type="video/mp4">
+      </video>
+      <span class="tag">Actual patient</span>
+    </div>
+    <div class="case-info">
+      <p class="eyebrow rv">Case 01</p>
+      <h3 class="rv rv-d1">Minimal-prep porcelain veneers, upper arch</h3>
+      <p class="rv rv-d2">Hand-characterized porcelain matched to her face and complexion — not a shade tab.</p>
+    </div>
+  </article>
+
+  <p class="consent-note">All patient photography and film shared with written consent.</p>
+
+  <!-- CASE 02 — full-width wide slider (stacked clinical before/after, split) -->
+  <article class="case-wide">
+    <div class="ba wide rv" data-ba tabindex="0" role="slider" aria-label="Before and after comparison, drag or use arrow keys" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
+      <img src="media/veneer-case-02-before.jpg" alt="Close-up of smile before treatment, worn and uneven teeth" loading="lazy">
+      <div class="after-wrap">
+        <img src="media/veneer-case-02-after.jpg" alt="Close-up of smile after minimal-prep porcelain veneers" loading="lazy">
+      </div>
+      <span class="label before">Before</span>
+      <span class="label after">After</span>
+      <div class="handle"></div>
+    </div>
+    <div class="case-wide-caption">
+      <p class="eyebrow rv">Case 02</p>
+      <!-- TODO: Dr. Khan to confirm clinical caption -->
+      <p class="rv rv-d1">Minimal-prep porcelain veneers, upper and lower. Worn, shortened teeth restored to full proportion — photographed unretouched.</p>
+    </div>
+    <blockquote class="case-quote rv rv-d2">
+      <p>“They look incredibly natural — no one has been able to tell they're veneers, which was exactly what I wanted. I'm taking so many more pictures now and actually smiling in them without thinking twice.”</p>
+      <cite>Veneer patient · Verified Google review</cite>
+    </blockquote>
+  </article>
+
+  <!-- CASE FILMS — tap to play, one at a time -->
+  <div class="films-head">
+    <h3 class="display rv">Case films</h3>
+    <p class="rv rv-d1">From the chair, as it happened. Tap a film to play with sound.</p>
+  </div>
+  <div class="films rv" id="films">
+    <!-- TODO: Dr. Khan to caption each film; source mapping in handoff notes -->
+    <figure class="reel"><video preload="none" playsinline loop poster="media/reel-02-poster.jpg"><source src="media/reel-02.mp4" type="video/mp4"></video><span class="play" aria-hidden="true">▶</span></figure>
+    <figure class="reel"><video preload="none" playsinline loop poster="media/reel-03-poster.jpg"><source src="media/reel-03.mp4" type="video/mp4"></video><span class="play" aria-hidden="true">▶</span></figure>
+    <figure class="reel"><video preload="none" playsinline loop poster="media/reel-04-poster.jpg"><source src="media/reel-04.mp4" type="video/mp4"></video><span class="play" aria-hidden="true">▶</span></figure>
+    <figure class="reel"><video preload="none" playsinline loop poster="media/reel-05-poster.jpg"><source src="media/reel-05.mp4" type="video/mp4"></video><span class="play" aria-hidden="true">▶</span></figure>
+    <figure class="reel"><video preload="none" playsinline loop poster="media/reel-06-poster.jpg"><source src="media/reel-06.mp4" type="video/mp4"></video><span class="play" aria-hidden="true">▶</span></figure>
+    <figure class="reel"><video preload="none" playsinline loop poster="media/reel-07-poster.jpg"><source src="media/reel-07.mp4" type="video/mp4"></video><span class="play" aria-hidden="true">▶</span></figure>
+    <figure class="reel"><video preload="none" playsinline loop poster="media/reel-08-poster.jpg"><source src="media/reel-08.mp4" type="video/mp4"></video><span class="play" aria-hidden="true">▶</span></figure>
+  </div>
+</section>
+
+<!-- ══ FACELIFTING VENEERS — signature approach ══ -->
+<section class="signature">
+  <div class="inner">
+    <div class="signature-media rv">
+      <img src="media/facelifting-veneers.jpg" alt="Facelifting Veneers by Dr. Khan — see your dream smile before you commit" loading="lazy">
+    </div>
+    <div>
+      <p class="eyebrow rv">The signature approach</p>
+      <h2 class="display rv rv-d1">Facelifting <em>veneers.</em></h2>
+      <!-- TODO: Dr. Khan to approve framing of her "Facelifting Veneers" concept -->
+      <p class="rv rv-d2">A smile doesn't stop at the teeth. Worn, shortened teeth let the lower face collapse inward; restoring their proportion supports the lips and softens the look of the whole face — a lift, without surgery.</p>
+      <p class="rv rv-d3">It's why every case here begins with a full-face study, and why you see your designed smile — on you, in motion — before you commit to anything.</p>
+      <a class="btn light rv rv-d3" href="#contact"><span>See yours first</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE DOCTOR ══ -->
+<section class="doctor" id="doctor">
+  <div class="inner">
+    <div class="doctor-media rv">
+      <img src="media/dr-khan-portrait.jpg" alt="Dr. Ghaznia Khan, DDS — cosmetic dentist, Veneer Suite, Fort Worth" loading="lazy">
+    </div>
+    <div>
+      <p class="eyebrow rv">The doctor</p>
+      <h2 class="display rv rv-d1">Dr. Ghaznia Khan, <em>DDS.</em></h2>
+      <p class="rv rv-d2">Dr. Khan earned her Doctor of Dental Surgery at the University of Toronto, where she also taught — lecturing dental students on restorative techniques within the ADA-accredited curriculum before she ever opened a practice of her own. Since then she has completed more than 2,000 hours of continuing education in cosmetic dentistry, implantology, and Invisalign, and built her Fort Worth practice around one conviction most cosmetic dentistry quietly ignores: the best work is the work no one can detect.</p>
+      <p class="rv rv-d2">She focuses on no-shave and minimal-prep porcelain veneers — conservative techniques that preserve natural enamel — and designs every smile against the patient's face, not a shade tab. An invited speaker at dental schools and professional forums on esthetic dentistry, she's also one of DFW's most-followed cosmetic dentists, sharing reveals on Instagram exactly as they happen in the chair — unretouched, with the patient's own reaction.</p>
+      <p class="creds rv rv-d3">DDS, University of Toronto · Cosmetic Dentistry, Smile Trend Institute · Invisalign Gold Provider · Aesthetic &amp; Implant Continuum trained · 2,000+ CE hours</p>
+      <a class="textlink rv rv-d3" href="https://www.instagram.com/drkhan__/" target="_blank" rel="noopener">Follow her work — @drkhan__</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ YOUR FIRST VISIT ══ -->
+<section class="visit">
+  <div class="inner">
+    <p class="eyebrow rv">Your first visit</p>
+    <h2 class="display rv rv-d1">Unhurried, by design.</h2>
+    <p class="lede rv rv-d2">A consultation here is a conversation, not a sales appointment. You'll leave knowing exactly what's possible — and you'll never be pressured toward more than you came for.</p>
+    <div class="step rv">
+      <span class="num">i.</span>
+      <span class="t">The conversation</span>
+      <span class="d">We start with what you want to change — in your words. Photos, smile history, and what "natural" means to you.</span>
+    </div>
+    <div class="step rv rv-d1">
+      <span class="num">ii.</span>
+      <span class="t">The study</span>
+      <span class="d">A full assessment of proportion, lip line, and character. Digital records, and a candid conversation about whether veneers are even the right answer.</span>
+    </div>
+    <div class="step rv rv-d2">
+      <span class="num">iii.</span>
+      <span class="t">The preview</span>
+      <span class="d">You see the designed smile before anything touches a tooth — and decide from there, on your own schedule.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ THE WORK ══ -->
+<section class="services">
+  <div class="inner">
+    <h2 class="display rv">The work</h2>
+    <a class="svc rv" href="blog/no-shave-veneers-explained.html">
+      <span class="name">No-shave veneers</span>
+      <span class="desc">Ultra-thin porcelain bonded over your natural teeth with little to no enamel removal — no shots, no temporaries in most cases. The most conservative way to redesign a smile.</span>
+      <span class="go">→</span>
+    </a>
+    <a class="svc rv rv-d1" href="blog/no-shave-veneers-explained.html">
+      <span class="name">Minimal-prep veneers</span>
+      <span class="desc">When a case needs slightly more refinement, we prepare only what the porcelain requires — a fraction of what traditional veneers remove — and keep your enamel where it belongs.</span>
+      <span class="go">→</span>
+    </a>
+    <a class="svc rv rv-d2" href="#contact">
+      <span class="name">Smile design</span>
+      <span class="desc">A full study of proportion, lip line, and character before anything touches a tooth. You preview the result before you commit to it.</span>
+      <span class="go">→</span>
+    </a>
+    <a class="svc rv rv-d3" href="#contact">
+      <span class="name">Bonding &amp; whitening</span>
+      <span class="desc">Small corrections with invisible edges, and whitening calibrated to your enamel rather than pushed to a shade it can't hold.</span>
+      <span class="go">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ══ REVIEWS — verbatim from the practice's Google listing ══ -->
+<section class="reviews">
+  <div class="inner">
+    <div class="head">
+      <h2 class="display rv">In their words</h2>
+      <a class="g-badge rv rv-d1" href="https://maps.app.goo.gl/hovSmxJpayCkxxR79" target="_blank" rel="noopener">
+        <span class="score">4.8</span>
+        <span class="stars">★★★★★</span>
+        <span class="meta">225 Google reviews →</span>
+      </a>
+    </div>
+    <div class="review-grid">
+      <figure class="review rv">
+        <span class="stars">★★★★★</span>
+        <q>I've had my veneers for a month now and honestly could not be happier. They look incredibly natural — no one has been able to tell they're veneers, which was exactly what I wanted. I'm taking so many more pictures now and actually smiling in them without thinking twice.</q>
+        <figcaption class="who">Verified Google review</figcaption>
+      </figure>
+      <figure class="review rv rv-d1">
+        <span class="stars">★★★★★</span>
+        <q>Dr. Khan takes the time to listen, explain procedures clearly, and make sure you're comfortable every step of the way. The level of care and attention to detail is outstanding. I always feel confident that I'm in good hands.</q>
+        <figcaption class="who">Verified Google review</figcaption>
+      </figure>
+      <figure class="review rv rv-d2">
+        <span class="stars">★★★★★</span>
+        <q>From the moment you walk in, you're greeted with warmth and professionalism. The office is clean, well-organized, and the staff are always courteous and supportive. Highly recommend!</q>
+        <figcaption class="who">Verified Google review</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq" id="faq">
+  <div class="inner">
+    <div class="faq-head">
+      <p class="eyebrow rv">Questions, answered honestly</p>
+      <h2 class="display rv rv-d1">About no-shave &amp; minimal-prep veneers</h2>
+    </div>
+    <div class="faq-list">
+      <details class="rv">
+        <summary>What are no-shave veneers?<span class="ind">+</span></summary>
+        <div class="a"><p>No-shave (also called no-prep) veneers are ultra-thin layers of porcelain — often around the thickness of a contact lens — bonded directly over your natural teeth with little to no enamel removal. Because your tooth structure stays intact, most cases need no anesthetic and no temporary veneers while your porcelain is crafted.</p></div>
+      </details>
+      <details class="rv">
+        <summary>How is that different from minimal-prep or traditional veneers?<span class="ind">+</span></summary>
+        <div class="a"><p>Traditional veneers typically require reshaping the front of each tooth to make room for the porcelain. Minimal-prep means we refine only what the case truly requires — often just light polishing of the enamel surface — and no-shave means essentially none at all. Dr. Khan's philosophy is simple: remove the least tooth structure the result allows. Enamel doesn't grow back, and porcelain bonds strongest to it.</p></div>
+      </details>
+      <details class="rv">
+        <summary>Am I a candidate for no-shave veneers?<span class="ind">+</span></summary>
+        <div class="a"><p>Many people are — especially those with smaller teeth, gaps, worn edges, or smiles that could use more fullness. Because no-prep veneers add a thin layer, teeth that are already prominent or significantly crowded may do better with a minimal-prep approach so the result never looks bulky. Candidacy is exactly what your consultation determines, and if veneers aren't the right answer for you, Dr. Khan will say so.</p></div>
+      </details>
+      <details class="rv">
+        <summary>Will they look natural?<span class="ind">+</span></summary>
+        <div class="a"><p>That is the entire point of this studio. Each veneer is hand-characterized — subtle translucency at the edges, natural surface texture, a shade designed against your complexion rather than picked from a tab. The compliment we design for: no one can tell.</p></div>
+      </details>
+      <details class="rv">
+        <summary>Does the process hurt?<span class="ind">+</span></summary>
+        <div class="a"><p>No-shave cases are typically entirely comfortable — no drilling into tooth structure means most patients need no anesthetic at all. Minimal-prep cases involve only conservative surface refinement, and comfort is managed carefully throughout.</p></div>
+      </details>
+      <details class="rv">
+        <summary>How long do porcelain veneers last?<span class="ind">+</span></summary>
+        <div class="a"><p>With good home care and routine visits, porcelain veneers commonly last a decade or more — many well beyond. Conserving enamel helps here too: porcelain bonded to enamel holds stronger over time than porcelain bonded to deeper tooth structure. We'll also talk honestly about habits (like night grinding) that affect longevity and how to protect your investment.</p></div>
+      </details>
+      <details class="rv">
+        <summary>How many visits does it take?<span class="ind">+</span></summary>
+        <div class="a"><p>Typically two to three: a consultation and smile study, then a design preview, then placement. No-shave cases usually skip temporaries entirely, so you wear nothing artificial while your porcelain is being crafted.</p></div>
+      </details>
+      <details class="rv">
+        <summary>What does it cost?<span class="ind">+</span></summary>
+        <div class="a"><p>It depends on how many teeth we're designing and what the case requires — a two-veneer refinement and a full smile design are very different projects. You'll get exact, transparent numbers at your consultation before any decision is made, with no pressure attached.<!-- TODO: confirm financing offering before publishing this sentence --> Financing options are available and we'll walk you through them.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ JOURNAL ══ -->
+<section class="journal" id="journal">
+  <div class="inner">
+    <div class="journal-head">
+      <h2 class="display rv">The journal</h2>
+      <p class="rv rv-d1">Straight answers on conservative veneer dentistry, written for patients — not search engines.</p>
+    </div>
+    <a class="post rv" href="blog/no-shave-veneers-explained.html">
+      <span class="post-eyebrow">The essential read</span>
+      <span class="post-title">No-shave veneers, explained: what "minimal prep" actually means</span>
+      <span class="post-line">What gets removed with traditional veneers, what doesn't with ours, and why enamel is worth protecting.</span>
+      <span class="go">Read →</span>
+    </a>
+    <a class="post rv rv-d1" href="blog/no-prep-veneer-candidacy.html">
+      <span class="post-eyebrow">Candidacy</span>
+      <span class="post-title">Are you a candidate for no-prep veneers?</span>
+      <span class="post-line">Who no-shave veneers flatter most, when minimal-prep is the smarter call, and the honest cases where we'd tell you no.</span>
+      <span class="go">Read →</span>
+    </a>
+    <a class="post rv rv-d2" href="blog/how-long-do-minimal-prep-veneers-last.html">
+      <span class="post-eyebrow">Longevity</span>
+      <span class="post-title">How long do minimal-prep veneers last?</span>
+      <span class="post-line">What the enamel bond means for lifespan, and the habits that decide whether porcelain lasts ten years or twenty.</span>
+      <span class="go">Read →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ══ THE STUDIO ══ -->
+<section class="studio">
+  <div class="inner">
+    <div>
+      <p class="eyebrow rv">The studio</p>
+      <h2 class="display rv rv-d1">Porcelain, brass, and quiet.</h2>
+      <p class="rv rv-d2">A private five-room studio on Henderson Street — gold glass mosaic, matte black hex, brushed brass throughout. Built for one thing: unhurried, considered dentistry.</p>
+      <p class="rv rv-d3">416 S Henderson St, Fort Worth, TX 76104 · Opening late summer 2026. Serving Fort Worth from the Near Southside — minutes from the Medical District, Magnolia Avenue, downtown, and TCU.</p>
+    </div>
+    <div class="studio-media rv rv-d1">
+      <!-- TODO: swap in real photography / walkthrough film of the finished space -->
+      <span>Studio photography<br>arriving with the<br>finished space</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="contact" id="contact">
+  <div class="inner">
+    <div>
+      <h2 class="display rv">Begin with a conversation.</h2>
+      <dl>
+        <div class="rv rv-d1">
+          <dt>Visit</dt>
+          <dd>416 S Henderson St<br>Fort Worth, TX 76104</dd>
+        </div>
+        <div class="rv rv-d2">
+          <dt>Call</dt>
+          <dd><a href="tel:+18179261300">817-926-1300</a></dd>
+        </div>
+        <div class="rv rv-d3">
+          <dt>Write</dt>
+          <dd><a href="mailto:admin@fortworthdentist.com">admin@fortworthdentist.com</a></dd>
+        </div>
+        <div class="rv rv-d3">
+          <dt>Follow</dt>
+          <dd><a href="https://www.instagram.com/drkhan__/" target="_blank" rel="noopener">@drkhan__</a></dd>
+        </div>
+      </dl>
+      <div class="intake" id="intake">
+        <p class="intake-step"><span class="num">i.</span> What are you hoping for?</p>
+        <div class="pills" data-group="goal" role="group" aria-label="Primary smile goal">
+          <button type="button">Full smile design</button>
+          <button type="button">Subtle enhancement</button>
+          <button type="button">A few teeth</button>
+          <button type="button">Not sure yet</button>
+        </div>
+        <p class="intake-step"><span class="num">ii.</span> Your ideal timeline?</p>
+        <div class="pills" data-group="timeline" role="group" aria-label="Ideal timeline">
+          <button type="button">As soon as possible</button>
+          <button type="button">Within a few months</button>
+          <button type="button">Just exploring</button>
+        </div>
+        <p class="intake-step"><span class="num">iii.</span> Best window for a private consultation?</p>
+        <div class="pills" data-group="window" role="group" aria-label="Preferred consultation window">
+          <button type="button">Weekday mornings</button>
+          <button type="button">Weekday afternoons</button>
+          <button type="button">Flexible</button>
+        </div>
+        <!-- When the scheduler or practice email exists, set data-mailto or data-scheduler
+             on this link and the JS below upgrades it automatically. -->
+        <a class="btn dark" id="intake-send" href="tel:+18179261300" data-mailto="admin@fortworthdentist.com" data-scheduler=""><span>Call to arrange — 817-926-1300</span></a>
+        <p class="intake-alt">Or simply call — <a href="tel:+18179261300">817-926-1300</a></p>
+      </div>
+    </div>
+    <div class="map rv rv-d1">
+      <iframe title="Map — 416 S Henderson St, Fort Worth"
+        src="https://maps.google.com/maps?q=416%20S%20Henderson%20St%2C%20Fort%20Worth%2C%20TX%2076104&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<div class="actionbar" id="actionbar" aria-label="Quick actions">
+  <a href="tel:+18179261300">Call</a>
+  <a class="book" href="#contact">Book</a>
+</div>
+
+<footer>
+  <span>Fort Worth Veneer Suite · 416 S Henderson St, Fort Worth, TX 76104</span>
+  <span>© 2026 Fort Worth Veneer Suite. All rights reserved.</span>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* hero headline word stagger */
+  var h1 = document.getElementById('hero-h1');
+  var walker = document.createTreeWalker(h1, NodeFilter.SHOW_TEXT);
+  var textNodes = [];
+  while (walker.nextNode()) textNodes.push(walker.currentNode);
+  var i = 0;
+  textNodes.forEach(function(node){
+    var frag = document.createDocumentFragment();
+    node.textContent.split(/(\s+)/).forEach(function(part){
+      if (/^\s+$/.test(part) || part === '') { frag.appendChild(document.createTextNode(part)); return; }
+      var s = document.createElement('span');
+      s.className = 'w';
+      s.style.setProperty('--i', i++);
+      s.textContent = part;
+      frag.appendChild(s);
+    });
+    node.parentNode.replaceChild(frag, node);
+  });
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      document.querySelector('.hero').classList.add('loaded');
+    });
+  });
+
+  /* scroll reveals */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold: 0.18, rootMargin: '0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  /* sticky mobile action bar: appears after the hero */
+  var abar = document.getElementById('actionbar');
+  var heroEl = document.querySelector('.hero');
+  if (abar && heroEl && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        abar.classList.toggle('show', !e.isIntersecting);
+      });
+    }, {threshold: 0.15}).observe(heroEl);
+  }
+
+  /* concierge intake: single-select pills, prefilled email */
+  var intake = document.getElementById('intake');
+  if (intake){
+    var picks = {};
+    intake.querySelectorAll('.pills').forEach(function(group){
+      var name = group.getAttribute('data-group');
+      group.querySelectorAll('button').forEach(function(b){
+        b.setAttribute('aria-pressed','false');
+        b.addEventListener('click', function(){
+          group.querySelectorAll('button').forEach(function(o){ o.setAttribute('aria-pressed','false'); });
+          b.setAttribute('aria-pressed','true');
+          picks[name] = b.textContent;
+          updateSend();
+        });
+      });
+    });
+    var send = document.getElementById('intake-send');
+    var mailto = send.getAttribute('data-mailto');
+    var scheduler = send.getAttribute('data-scheduler');
+    function updateSend(){
+      if (scheduler){
+        send.setAttribute('href', scheduler);
+        send.querySelector('span').textContent = 'Request your consultation';
+        return;
+      }
+      if (mailto){
+        var body = 'Hello, I would like to request a private consultation.';
+        if (picks.goal) body += '\n\nSmile goal: ' + picks.goal;
+        if (picks.timeline) body += '\nTimeline: ' + picks.timeline;
+        if (picks.window) body += '\nPreferred window: ' + picks.window;
+        send.setAttribute('href', 'mailto:' + mailto +
+          '?subject=' + encodeURIComponent('Consultation request — Veneer Suite') +
+          '&body=' + encodeURIComponent(body));
+        send.querySelector('span').textContent = 'Request your consultation';
+      }
+    }
+    updateSend();
+  }
+
+  /* scroll progress hairline */
+  var bar = document.getElementById('progress');
+  var ticking = false;
+  function paint(){
+    var h = document.documentElement;
+    var p = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
+    bar.style.transform = 'scaleX(' + p + ')';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking){ requestAnimationFrame(paint); ticking = true; }
+  }, {passive:true});
+
+  /* before/after sliders */
+  document.querySelectorAll('[data-ba]').forEach(function(ba){
+    var dragging = false;
+    function setX(clientX){
+      var r = ba.getBoundingClientRect();
+      var pct = Math.min(100, Math.max(0, (clientX - r.left) / r.width * 100));
+      ba.style.setProperty('--x', pct + '%');
+      ba.setAttribute('aria-valuenow', Math.round(pct));
+    }
+    ba.addEventListener('pointerdown', function(e){
+      dragging = true;
+      ba.setPointerCapture(e.pointerId);
+      setX(e.clientX);
+    });
+    ba.addEventListener('pointermove', function(e){ if (dragging) setX(e.clientX); });
+    ba.addEventListener('pointerup', function(){ dragging = false; });
+    ba.addEventListener('pointercancel', function(){ dragging = false; });
+    ba.addEventListener('keydown', function(e){
+      var now = parseFloat(ba.getAttribute('aria-valuenow'));
+      if (e.key === 'ArrowLeft'){ now -= 4; }
+      else if (e.key === 'ArrowRight'){ now += 4; }
+      else return;
+      e.preventDefault();
+      now = Math.min(100, Math.max(0, now));
+      ba.style.setProperty('--x', now + '%');
+      ba.setAttribute('aria-valuenow', Math.round(now));
+    });
+  });
+
+  /* videos: play only when visible; case video starts on scroll into view.
+     Reels (.reel video) are click-to-play with sound and excluded here. */
+  document.querySelectorAll('video').forEach(function(v){
+    if (v.closest('.reel')) return;
+    if (reduce){
+      v.removeAttribute('autoplay'); v.pause(); v.setAttribute('controls','');
+      return;
+    }
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { v.play().catch(function(){}); }
+        else { v.pause(); }
+      });
+    }, {threshold: 0.1}).observe(v);
+  });
+
+  /* case film reels: tap to play with sound, one at a time */
+  var reels = document.querySelectorAll('.reel');
+  function stopAll(except){
+    reels.forEach(function(r){
+      if (r === except) return;
+      var v = r.querySelector('video');
+      v.pause(); v.muted = true;
+      r.classList.remove('playing');
+    });
+  }
+  reels.forEach(function(r){
+    var v = r.querySelector('video');
+    r.addEventListener('click', function(){
+      if (v.paused){
+        stopAll(r);
+        v.muted = false;
+        v.play().catch(function(){ v.muted = true; v.play().catch(function(){}); });
+        r.classList.add('playing');
+      } else {
+        v.pause();
+        r.classList.remove('playing');
+      }
+    });
+    v.addEventListener('ended', function(){ r.classList.remove('playing'); });
+  });
+  /* pause reels scrolled out of view */
+  if ('IntersectionObserver' in window){
+    var reelIO = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting){
+          var v = e.target.querySelector('video');
+          if (!v.paused){ v.pause(); e.target.classList.remove('playing'); }
+        }
+      });
+    }, {threshold: 0.05});
+    reels.forEach(function(r){ reelIO.observe(r); });
+  }
+})();
+</script>
+<!-- Concierge agent: set data-endpoint="/api/concierge" after deploying agent/ backend (see agent/README.md).
+     With an empty endpoint the button gracefully scrolls to the intake instead. -->
+<script src="agent/concierge-widget.js" data-endpoint="" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "Fort Worth Veneer Suite",
+  "description": "No-shave and minimal-prep porcelain veneers and smile design by Dr. Khan in a private Fort Worth studio.",
+  "url": "https://fortworthveneersuite.com/",
+  "telephone": "+18179261300",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "416 S Henderson St",
+    "addressLocality": "Fort Worth",
+    "addressRegion": "TX",
+    "postalCode": "76104",
+    "addressCountry": "US"
+  },
+  "geo": {"@type": "GeoCoordinates", "latitude": 32.7472, "longitude": -97.3363},
+  "medicalSpecialty": "Dentistry",
+  "founder": {"@type": "Person", "name": "Dr. Ghaznia Khan", "honorificSuffix": "DDS", "alumniOf": "University of Toronto", "sameAs": "https://www.instagram.com/drkhan__/"},
+  "priceRange": "$$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "225"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What are no-shave veneers?","acceptedAnswer":{"@type":"Answer","text":"No-shave (also called no-prep) veneers are ultra-thin layers of porcelain bonded directly over your natural teeth with little to no enamel removal. Because tooth structure stays intact, most cases need no anesthetic and no temporary veneers."}},
+    {"@type":"Question","name":"How are no-shave veneers different from minimal-prep or traditional veneers?","acceptedAnswer":{"@type":"Answer","text":"Traditional veneers typically require reshaping the front of each tooth to make room for porcelain. Minimal-prep refines only what the case requires, and no-shave means essentially no enamel removal at all. Porcelain also bonds strongest to enamel, so conserving it benefits longevity."}},
+    {"@type":"Question","name":"Am I a candidate for no-prep veneers?","acceptedAnswer":{"@type":"Answer","text":"Many people are, especially those with smaller teeth, gaps, worn edges, or smiles that could use more fullness. Teeth that are already prominent or significantly crowded may do better with a minimal-prep approach. A consultation determines candidacy."}},
+    {"@type":"Question","name":"Does getting no-shave veneers hurt?","acceptedAnswer":{"@type":"Answer","text":"No-shave cases are typically entirely comfortable — most patients need no anesthetic because no tooth structure is drilled. Minimal-prep cases involve only conservative surface refinement."}},
+    {"@type":"Question","name":"How long do porcelain veneers last?","acceptedAnswer":{"@type":"Answer","text":"With good home care and routine visits, porcelain veneers commonly last a decade or more. Porcelain bonded to conserved enamel holds stronger over time than porcelain bonded to deeper tooth structure."}},
+    {"@type":"Question","name":"How many visits do veneers take?","acceptedAnswer":{"@type":"Answer","text":"Typically two to three: a consultation and smile study, a design preview, then placement. No-shave cases usually skip temporary veneers entirely."}}
+  ]
+}
+</script>
+</body>
+</html>
