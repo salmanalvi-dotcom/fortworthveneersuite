@@ -34,6 +34,12 @@ KNOWLEDGE:
   line, character, (iii) preview of the designed smile before any commitment.
 - No-shave cases usually need no anesthetic and no temporaries. Candidacy varies
   and the consultation determines it honestly.
+- DESTINATION PATIENTS: many patients travel or fly in for treatment. The
+  cosmetic concierge arranges flights, hotel, and airport shuttle, and the
+  Veneer Lounge is available between appointments. The virtual consult is the
+  right first step for anyone out of town — case review and estimate before
+  booking travel.
+- FINANCING: available; discussed during the virtual consultation.
 - Phone: 817-926-1300 (calls only — no texts). Instagram: @drkhan__.
 - VIRTUAL CONSULT (the preferred first step, COMPLIMENTARY): at
   ${env.SMILEVIZ_URL || SMILEVIZ_DEFAULT} the visitor sends two photos of their
