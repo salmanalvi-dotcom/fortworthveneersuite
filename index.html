@@ -111,14 +111,22 @@
   nav{
     position:fixed;inset:0 0 auto 0;z-index:50;
     display:flex;justify-content:space-between;align-items:center;
-    padding:22px clamp(24px,5vw,64px);
-    mix-blend-mode:difference;color:var(--porcelain);
+    padding:18px clamp(24px,5vw,64px);
+    color:var(--porcelain);
+    transition:background .35s var(--ease-out);
   }
-  .wordmark{
-    font-family:var(--serif);font-size:20px;font-weight:400;
-    letter-spacing:.08em;text-transform:uppercase;
-    color:inherit;text-decoration:none;
+  nav.scrolled{
+    background:rgba(250,248,244,.86);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    color:var(--ink);
+    border-bottom:1px solid var(--hairline);
   }
+  .wordmark{display:inline-flex;align-items:center;text-decoration:none}
+  .wordmark img{height:26px;width:auto;display:block}
+  .logo-dark{display:none}
+  nav.scrolled .logo-light{display:none}
+  nav.scrolled .logo-dark{display:block}
   .nav-cta{
     font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
     color:inherit;text-decoration:none;
@@ -741,8 +749,11 @@
 
 <div id="progress" aria-hidden="true"></div>
 
-<nav>
-  <a class="wordmark" href="#top">Veneer Suite</a>
+<nav id="nav">
+  <a class="wordmark" href="#top" aria-label="The Veneer Suite — home">
+    <img class="logo-light" src="media/tvs-logo-light.png" alt="The Veneer Suite">
+    <img class="logo-dark" src="media/tvs-logo-dark.png" alt="" aria-hidden="true">
+  </a>
   <a class="nav-cta" href="#contact">Book a Consultation</a>
 </nav>
 
@@ -1203,7 +1214,7 @@
 </div>
 
 <footer>
-  <span>Fort Worth Veneer Suite · 416 S Henderson St, Fort Worth, TX 76104</span>
+  <span class="foot-brand"><img src="media/tvs-logo-dark.png" alt="The Veneer Suite" style="height:22px;width:auto;display:block;margin-bottom:10px">416 S Henderson St, Fort Worth, TX 76104</span>
   <span>© 2026 Fort Worth Veneer Suite. All rights reserved.</span>
 </footer>
 
@@ -1243,13 +1254,15 @@
   }, {threshold: 0.18, rootMargin: '0px 0px -40px 0px'});
   document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
 
-  /* sticky mobile action bar: appears after the hero */
+  /* sticky mobile action bar + nav colorway: driven by hero visibility */
   var abar = document.getElementById('actionbar');
+  var navEl = document.getElementById('nav');
   var heroEl = document.querySelector('.hero');
-  if (abar && heroEl && 'IntersectionObserver' in window){
+  if (heroEl && 'IntersectionObserver' in window){
     new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        abar.classList.toggle('show', !e.isIntersecting);
+        if (abar) abar.classList.toggle('show', !e.isIntersecting);
+        if (navEl) navEl.classList.toggle('scrolled', !e.isIntersecting);
       });
     }, {threshold: 0.15}).observe(heroEl);
   }
