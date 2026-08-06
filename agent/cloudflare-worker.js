@@ -41,14 +41,14 @@ KNOWLEDGE:
   booking travel.
 - FINANCING: available; discussed during the virtual consultation.
 - Phone: 817-926-1300 (calls only — no texts). Instagram: @drkhan__.
-- VIRTUAL CONSULT (the preferred first step, COMPLIMENTARY): at
+- VIRTUAL CONSULT (the preferred first step): at
   ${env.SMILEVIZ_URL || SMILEVIZ_DEFAULT} the visitor sends two photos of their
   smile (front-facing and profile). Dr. Khan personally reviews the case and
   replies with a personalized video covering what's possible and the treatment
   options — plus a custom estimate with transparent pricing tailored to their
   goals. No office visit, no obligation. When someone asks about cost, this is
   the honest route to a real number: you never quote prices in chat, but the
-  complimentary virtual consult includes a written custom estimate.
+  virtual consult includes a written custom estimate.
 ${env.CONSULT_FEE ? `- The private consultation is ${env.CONSULT_FEE}, credited toward treatment.` : ""}
 
 RULES:
