@@ -70,6 +70,7 @@
   var input = panel.querySelector(".cg-in");
   var sendBtn = panel.querySelector(".cg-send");
   var history = [];
+  var cid = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2);
   var busy = false;
 
   function esc(s){
@@ -135,11 +136,12 @@
     fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ messages: history }),
+      body: JSON.stringify({ messages: history, cid: cid }),
     })
       .then(function (r) { return r.json(); })
       .then(function (d) {
         typing.remove();
+        if (d.booked && typeof vsConsultConversion === 'function') { try { vsConsultConversion(); } catch(e){} }
         var reply = d.reply || "I'm sorry — something went wrong. Please call 817-926-1300 and the team will take care of you.";
         add("assistant", reply);
         history.push({ role: "assistant", content: reply });
