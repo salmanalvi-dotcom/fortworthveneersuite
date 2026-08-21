@@ -28,11 +28,11 @@ luxury studio, never a salesy chatbot.
 
 KNOWLEDGE:
 - Dr. Khan (DDS, University of Toronto; taught there; 2,000+ CE hours) focuses on
-  no-shave and minimal-prep porcelain veneers — conservative techniques preserving
+  minimal prep porcelain veneers — conservative techniques preserving
   natural enamel. Porcelain bonds strongest to enamel.
 - Consultation: (i) conversation about goals, (ii) full study of proportion, lip
   line, character, (iii) preview of the designed smile before any commitment.
-- No-shave cases usually need no anesthetic and no temporaries. Candidacy varies
+- Minimal prep cases usually need no anesthetic and no temporaries. Candidacy varies
   and the consultation determines it honestly.
 - DESTINATION PATIENTS: many patients travel or fly in for treatment. The
   cosmetic concierge arranges flights, hotel, and airport shuttle, and the
@@ -146,8 +146,69 @@ async function callClaude(messages, env) {
   return r.json();
 }
 
+
+// ── conversation logging (Cloudflare KV, optional) ──────────────
+// Bind a KV namespace as CHATLOG and set secret LOG_TOKEN to enable.
+async function logConversation(env, cid, messages, reply, booked) {
+  if (!env.CHATLOG || !cid) return;
+  try {
+    const day = new Date().toISOString().slice(0, 10);
+    const key = "conv:" + day + ":" + cid;
+    const transcript = messages.concat([{ role: "assistant", content: reply }]);
+    await env.CHATLOG.put(key, JSON.stringify({ updated: Date.now(), booked, transcript }), {
+      expirationTtl: 7776000, // 90 days
+      metadata: { booked: booked, msgs: transcript.length, t: Date.now() }
+    });
+  } catch (e) {}
+}
+
+async function handleAdmin(request, env, cors) {
+  const url = new URL(request.url);
+  if (!env.LOG_TOKEN || url.searchParams.get("token") !== env.LOG_TOKEN) {
+    return new Response(JSON.stringify({ error: "unauthorized" }), { status: 401, headers: { ...cors, "Content-Type": "application/json" } });
+  }
+  if (!env.CHATLOG) {
+    return new Response(JSON.stringify({ error: "CHATLOG KV not bound" }), { status: 500, headers: { ...cors, "Content-Type": "application/json" } });
+  }
+  if (url.pathname === "/stats") {
+    const days = parseInt(url.searchParams.get("days") || "14", 10);
+    const out = [];
+    for (let i = 0; i < days; i++) {
+      const d = new Date(Date.now() - i * 86400000).toISOString().slice(0, 10);
+      let convos = 0, booked = 0, msgs = 0, cursor;
+      do {
+        const page = await env.CHATLOG.list({ prefix: "conv:" + d + ":", cursor });
+        convos += page.keys.length;
+        for (const k of page.keys) {
+          if (k.metadata && k.metadata.booked) booked++;
+          if (k.metadata && k.metadata.msgs) msgs += k.metadata.msgs;
+        }
+        cursor = page.list_complete ? null : page.cursor;
+      } while (cursor);
+      out.push({ day: d, conversations: convos, booked: booked, avg_messages: convos ? Math.round(msgs / convos * 10) / 10 : 0 });
+    }
+    return new Response(JSON.stringify(out, null, 2), { headers: { ...cors, "Content-Type": "application/json" } });
+  }
+  if (url.pathname === "/transcripts") {
+    const day = url.searchParams.get("day") || new Date().toISOString().slice(0, 10);
+    const list = await env.CHATLOG.list({ prefix: "conv:" + day + ":" });
+    const out = [];
+    for (const k of list.keys.slice(0, 50)) {
+      const v = await env.CHATLOG.get(k.name, "json");
+      if (v) out.push({ id: k.name.split(":")[2], booked: v.booked, transcript: v.transcript });
+    }
+    return new Response(JSON.stringify(out, null, 2), { headers: { ...cors, "Content-Type": "application/json" } });
+  }
+  return new Response(JSON.stringify({ endpoints: ["/stats?days=14", "/transcripts?day=YYYY-MM-DD"] }), { headers: { ...cors, "Content-Type": "application/json" } });
+}
+
 export default {
   async fetch(request, env) {
+    const _u = new URL(request.url);
+    const _cors2 = { "Access-Control-Allow-Origin": "*" };
+    if (request.method === "GET" && (_u.pathname === "/stats" || _u.pathname === "/transcripts")) {
+      return handleAdmin(request, env, _cors2);
+    }
     const cors = {
       "Access-Control-Allow-Origin": "https://fortworthveneersuite.com",
       "Access-Control-Allow-Headers": "Content-Type",
@@ -160,7 +221,7 @@ export default {
       return new Response(JSON.stringify({ error: "not configured" }), { status: 500, headers: { ...cors, "Content-Type": "application/json" } });
 
     try {
-      const { messages } = await request.json();
+      const { messages, cid } = await request.json();
       if (!Array.isArray(messages) || !messages.length || messages.length > 40)
         return new Response(JSON.stringify({ error: "bad request" }), { status: 400, headers: { ...cors, "Content-Type": "application/json" } });
 
@@ -191,6 +252,7 @@ export default {
 
       if (!reply) reply = "Thank you — the team will reach out within one business day. If anything is urgent, please call 817-926-1300.";
 
+      await logConversation(env, cid, messages, reply, booked);
       return new Response(JSON.stringify({
         reply,
         booked,

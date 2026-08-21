@@ -15,7 +15,26 @@ consultation fee.
   API key server-side, enforces the consultation-only system prompt, forwards
   completed bookings to a webhook, appends the payment link.
 
-## Deploy (about 30 minutes)
+## Deploy on Cloudflare Workers (recommended — matches your stack, ~20 min)
+
+The site is on GitHub Pages + Cloudflare, which can't run the Vercel function.
+Use `cloudflare-worker.js` instead — it's the AGENTIC version (real tool use:
+the model itself submits the booking mid-conversation).
+
+1. Cloudflare dashboard → Workers & Pages → Create → Worker → paste
+   `cloudflare-worker.js` → Deploy. Note the worker URL.
+2. Worker → Settings → Variables and Secrets:
+   - `ANTHROPIC_API_KEY` (required, from console.anthropic.com)
+   - `FORMSPREE_ID` (recommended — same form as the site intake)
+   - `BOOKING_WEBHOOK_URL`, `STRIPE_PAYMENT_LINK`, `CONSULT_FEE` (optional)
+3. In index.html set the widget tag:
+   `<script src="agent/concierge-widget.js" data-endpoint="https://<your-worker>.workers.dev" defer>`
+4. Commit index.html; test after the Pages deploy goes green.
+
+CORS is locked to https://fortworthveneersuite.com in the worker — edit if the
+domain changes.
+
+## Deploy on Vercel (alternative, non-agentic version)
 
 1. **Host the site on Vercel** (drag the veneer-suite folder into a Vercel
    project, or connect a git repo). The `agent/api/concierge.js` file must be
